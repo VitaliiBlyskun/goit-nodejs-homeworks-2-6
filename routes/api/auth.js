@@ -4,16 +4,16 @@ const { userController } = require("../../controllers");
 
 const { validateBody, authenticate, upload } = require("../../middlewares");
 
-const { registerSchema, loginSchema } = require("../../schemas");
+const { registerSchema, loginSchema, emailSchema } = require("../../schemas");
 
 const authRouter = express.Router();
 
 // signUp
-authRouter.post(
-  "/register",
-  validateBody(registerSchema),
-  userController.register
-);
+authRouter.post("/register", validateBody(registerSchema), userController.register);
+
+authRouter.get("/verify/:verificationToken", userController.verifyEmail)
+
+authRouter.post("/verify", validateBody(emailSchema), userController.resendVerifyEmail)
 
 // signIn
 authRouter.post("/login", validateBody(loginSchema), userController.login);
