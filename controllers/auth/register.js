@@ -3,7 +3,8 @@ require("dotenv").config();
 const gravatar = require("gravatar");
 const { v4: uuidv4 } = require("uuid");
 const { User } = require("../../models");
-const { HttpError, sendEmail } = require("../../utils");
+const { HttpError } = require("../../utils");
+const { sendEmail } = require("../../services/email");
 const { BASE_URL } = process.env;
 
 const register = async (request, response) => {

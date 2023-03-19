@@ -28,6 +28,6 @@ const contactSchema = new Schema(
 
 contactSchema.post("save", handleMangooseError);
 
-const ContactLeaveSchema = model("contact", contactSchema);
+const ContactLeaveSchema = model("Contact", contactSchema);
 
 module.exports = ContactLeaveSchema;
