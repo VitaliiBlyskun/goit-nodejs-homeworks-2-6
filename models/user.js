@@ -31,6 +31,6 @@ const userSchema = new Schema({
 
 userSchema.post("save", handleMangooseError);
 
-const UserLeaveSchema = model("user", userSchema);
+const UserLeaveSchema = model("User", userSchema);
 
 module.exports = UserLeaveSchema;
